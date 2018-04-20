@@ -7,9 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "StatusBarItem.h"
+@class DDHotKey;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate>{
+	IBOutlet StatusBarItem* statusBarItem;
+}
 
+@property (strong)StatusBarItem* statusBarItem;
+@property (readwrite, retain)DDHotKey* hotKey;
 
 @end
 

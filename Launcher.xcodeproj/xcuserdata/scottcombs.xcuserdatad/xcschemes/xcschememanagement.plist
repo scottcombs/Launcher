@@ -4,10 +4,38 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>HotKey.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>Launcher.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>LauncherStartup.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>762B73A720880A4F00A7129F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>76AD587F2088E96B0004BDEA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>76EA9CD7208957EF00925E1A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
