@@ -226,6 +226,7 @@
 				762B73A520880A4F00A7129F /* Frameworks */,
 				762B73A620880A4F00A7129F /* Resources */,
 				76AD58912088F33B0004BDEA /* CopyFiles */,
+				765F5C38208BF3F900A26450 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -327,6 +328,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		765F5C38208BF3F900A26450 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "rm -R -v ${BUILT_PRODUCTS_DIR}/LauncherStarter.app";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		762B73A420880A4F00A7129F /* Sources */ = {
