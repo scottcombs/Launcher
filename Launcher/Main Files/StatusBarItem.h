@@ -28,4 +28,6 @@
 - (IBAction)handleHotKey:(id)sender object:(NSMenuItem*)menuItem;
 - (IBAction)handleHotKeySet:(NSMenuItem*)sender;
 - (IBAction)setNewKeyEquivalent:(DDHotKeyTextField*)sender;
+- (IBAction)helpTriggered:(id)sender;
+
 @end

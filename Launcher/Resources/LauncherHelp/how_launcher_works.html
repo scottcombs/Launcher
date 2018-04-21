@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="ROBOTS" content="NOINDEX" />
+	<title>How Launcher Works</title>
+	<link rel="stylesheet" href="stylesheet.css" />
+</head>
+<body id="main">
+	<div>
+	<div id="details" class="detailsDiv">
+		<details>
+			<summary><a href="./index.html">Home</a></summary>
+		</details>
+		<details>
+			<summary><a href="./how_to_use.html">How to use Launcher?</a></summary>
+			<p>The missing tool Apple didn't provide.</p>
+		</details>
+		<details>
+			<summary><a href="./add_an_item.html">Add an Item</a></summary>
+			<p>Adding and setting a global hotkey</p>
+		</details>
+		<details>
+			<summary><a href="./remove_an_item.html">Removing an Item</a></summary>
+			<p>Removing unwanted items. Removing a global hotkey.</p>
+		</details>
+		<details>
+			<summary><a href="./how_launcher_works.html">How Launcher works?</a></summary>
+			<p>The specifics and tips for special cases.</p>
+		</details>
+		<details>
+			<summary><a href="./troubleshooting.html">Troubleshooting</a></summary>
+			<p>What may go wrong and how to avoid issues.</p>
+		</details>
+    </div>
+	<div id="header" class="headerDiv"><img src="./images/icon_512x512@2x.png" width="200px" height="auto" />
+    	<h1 class="header">Launcher Help</h1>
+    </div>
+    <div class="bodyText">
+    		<p class="text"><b>Launcher</b> is a light-weight application without a main window. It launches and registers itself on the main menubar and waits for user interaction.</p>
+		<p class="text">When you add items <b>Launcher</b> collects the new menuitems and builds listeners that wait for hotkey events. Those listeners are removed and added when the app exits or launches. If you remove and item <b>Launcher</b> removes all the listeners and then restores only the remaining menuitems.</p>
+		<p class="text">When <b>Launcher</b> exit, it automatically saves its menuitems to a binary file in your home folder's Library folder in the Application Support folder. Here is a path to follow.</p>
+		<p class="code">~/Library/Application Support/Launcher/menuItems.bin</p>
+		<p class="text">This means, if you wanted to you could copy this file and add it to other Mac OS X machines, provided the menuitems are also present on the new machine.</p>
+		<p class="text">Your preferences, containing whether <b>Launcher</b> launches at startup is located in:</p>
+		<p class="code">~/Library/Preferences/com.crankysoft.Launcher.plist</p>
+		<p class="text">That's about it. Enjoy.</p>
+    </div>
+    </div>
+</body>
+</html>

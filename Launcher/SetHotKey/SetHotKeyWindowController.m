@@ -41,7 +41,7 @@
 - (IBAction)clearHotKeyTextField:(id)sender {
 	self.menuItem.keyEquivalent = @"";
 	self.menuItem.keyEquivalentModifierMask = 0;
-	self.hotKeyTextField.hotKey = NULL;
+	self.hotKeyTextField.hotKey = nil;
 }
 
 - (IBAction)resetMenuItem:(id)sender {

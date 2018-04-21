@@ -96,38 +96,62 @@
 	}
 	
 	// Common items that are always present
+
+	// Add A Separator
 	[self.menu addItem:[NSMenuItem separatorItem]];
-	
+
+	// Launch At Startup MenuItem
 	self.launchItem = [[NSMenuItem alloc]init];
 	self.launchItem.action = @selector(setAutoLaunch:);
 	self.launchItem.target = self;
 	self.launchItem.title = @"Launch At Startup";
 	self.launchItem.state = self.launchAtStartup;
 	[self.menu addItem:self.launchItem];
-	
+
+	// Add A New MenuItem
 	NSMenuItem* addItem = [[NSMenuItem alloc] init];
 	addItem.action = @selector(addItem:);
 	addItem.target = self;
 	addItem.title = @"Add Item...";
 	addItem.keyEquivalent = @"";
 	[self.menu addItem:addItem];
-	
-	NSMenuItem* aboutItem = [[NSMenuItem alloc] init];
+
+	// Save Current MenuItems
+	NSMenuItem* saveItem = [[NSMenuItem alloc]init];
+	saveItem.action = @selector(saveMenuItems:);
+	saveItem.target = self;
+	saveItem.title = @"Save";
+	[self.menu addItem:saveItem];
+
+	// Add A Separator
+	[self.menu addItem:[NSMenuItem separatorItem]];
+
+	// About Launcher
+	NSMenuItem* aboutItem = [[NSMenuItem alloc]init];
 	aboutItem.action = @selector(orderFrontStandardAboutPanel:);
 	aboutItem.target = nil;
 	aboutItem.title = @"About Launcher...";
 	[self.menu addItem:aboutItem];
-	
+
+	// TODO: Add Help
+	NSMenuItem* helpItem = [[NSMenuItem alloc]init];
+	helpItem.action = @selector(helpTriggered:);
+	helpItem.target = self;
+	helpItem.title = @"Help...";
+	[self.menu addItem:helpItem];
+
+	// Add A Separator
 	[self.menu addItem:[NSMenuItem separatorItem]];
-	
-	NSMenuItem* exit = [[NSMenuItem alloc] init];
-	exit.action = @selector(terminate:);
-	exit.target = NSApp;
-	exit.title = @"Exit";
-	exit.keyEquivalent = @"";
-	
-	[self.menu addItem:exit];
-	
+
+	// Quit Launcher
+	NSMenuItem* quit = [[NSMenuItem alloc] init];
+	quit.action = @selector(terminate:);
+	quit.target = NSApp;
+	quit.title = @"Quit";
+	quit.keyEquivalent = @"";
+	[self.menu addItem:quit];
+
+	// Set the whole works
 	self.statusItem.menu = self.menu;
 }
 
@@ -231,9 +255,14 @@
 	NSModalResponse returnCode = [NSApp runModalForWindow:window];
 	if (returnCode == NSModalResponseOK) {
 		DDHotKey* hotKey = shkwc.hotKeyTextField.hotKey;
-		NSString* keyCode = DDStringFromKeyCode(hotKey.keyCode, 0);
-		menuItem.keyEquivalent = keyCode;
-		menuItem.keyEquivalentModifierMask = hotKey.modifierFlags;
+		if (!hotKey) {
+			menuItem.keyEquivalent = @"";
+			menuItem.keyEquivalentModifierMask = 0;
+		}else{
+			NSString* keyCode = DDStringFromKeyCode(hotKey.keyCode, 0);
+			menuItem.keyEquivalent = [keyCode lowercaseString];
+			menuItem.keyEquivalentModifierMask = hotKey.modifierFlags;
+		}
 		[self buildMenu:self];
 	}else{
 		[shkwc resetMenuItem:self];
@@ -244,4 +273,9 @@
 - (IBAction)setNewKeyEquivalent:(DDHotKeyTextField*)sender {
 	NSLog(@"%@", @"Got Here");
 }
+
+- (IBAction)helpTriggered:(id)sender {
+	[NSApp showHelp:self];
+}
+
 @end
