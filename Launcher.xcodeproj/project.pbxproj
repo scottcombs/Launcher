@@ -505,7 +505,7 @@
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
-				INFOPLIST_FILE = Launcher/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Launcher/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crankysoft.Launcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -525,7 +525,7 @@
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
-				INFOPLIST_FILE = Launcher/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Launcher/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crankysoft.Launcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
