@@ -108,9 +108,10 @@ static NSDictionary *_DDKeyCodeToCharacterMap(void) {
 					   @(kVK_ANSI_Quote) : @"'",
 					   @(kVK_ANSI_LeftBracket) : @"[",
 					   @(kVK_ANSI_RightBracket) : @"]",
-					   @(kVK_ANSI_Backslash) : @"\""
-
-
+					   @(kVK_ANSI_Backslash) : @"\"",
+					   @(kVK_ANSI_Equal) : @"=",
+					   @(kVK_ANSI_Minus) : @"-",
+					   @(kVK_ANSI_Grave) : @"`"
                        };
     });
     return keyCodeMap;

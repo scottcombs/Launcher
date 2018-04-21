@@ -14,5 +14,8 @@
 @property (readwrite, retain)NSMenuItem* menuItem;
 @property (strong) IBOutlet NSTextField *titleTextField;
 @property (strong) IBOutlet DDHotKeyTextField *hotKeyTextField;
+@property (readwrite, retain)NSMenuItem* originalValues;
+
+- (IBAction)resetMenuItem:(id)sender;
 
 @end

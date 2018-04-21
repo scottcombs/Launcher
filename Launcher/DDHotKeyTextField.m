@@ -53,7 +53,11 @@ static DDHotKeyTextFieldEditor *DDFieldEditor(void) {
 - (void)setHotKey:(DDHotKey *)hotKey {
     if (_hotKey != hotKey) {
         _hotKey = hotKey;
-        [super setStringValue:[DDStringFromKeyCode(hotKey.keyCode, hotKey.modifierFlags) uppercaseString]];
+		if (_hotKey) {
+			[super setStringValue:[DDStringFromKeyCode(hotKey.keyCode, hotKey.modifierFlags) uppercaseString]];
+		}else{
+			[super setStringValue:@""];
+		}
     }
 }
 

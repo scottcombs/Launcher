@@ -70,7 +70,7 @@
 		if (![item.keyEquivalent isEqualToString:@""]) {
 			// Register hotkey
 			DDHotKeyCenter* hkc = [DDHotKeyCenter sharedHotKeyCenter];
-			unsigned int keyCode = DDKeycodeFromString([item.keyEquivalent uppercaseString]);
+			unsigned int keyCode = DDKeycodeFromString(item.keyEquivalent);
 
 			DDHotKey* hk = [hkc registerHotKeyWithKeyCode:keyCode modifierFlags:item.keyEquivalentModifierMask target:self action:@selector(handleHotKey:object:) object:item];
 			[self.hotkeyItems addObject:hk];
@@ -234,6 +234,9 @@
 		NSString* keyCode = DDStringFromKeyCode(hotKey.keyCode, 0);
 		menuItem.keyEquivalent = keyCode;
 		menuItem.keyEquivalentModifierMask = hotKey.modifierFlags;
+		[self buildMenu:self];
+	}else{
+		[shkwc resetMenuItem:self];
 		[self buildMenu:self];
 	}
 }
