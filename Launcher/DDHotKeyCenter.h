@@ -18,6 +18,8 @@ typedef void (^DDHotKeyTask)(NSEvent*);
 // creates a new hotkey but does not register it
 + (instancetype)hotKeyWithKeyCode:(unsigned short)keyCode modifierFlags:(NSUInteger)flags task:(DDHotKeyTask)task;
 
++ (instancetype)hotKeyWithKeyCodeNoTask:(unsigned short)keyCode modifierFlags:(NSUInteger)flags;
+
 @property (nonatomic, assign, readonly) id target;
 @property (nonatomic, readonly) SEL action;
 @property (nonatomic, strong, readonly) id object;

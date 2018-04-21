@@ -12,3 +12,4 @@
 
 extern NSString *DDStringFromKeyCode(unsigned short keyCode, NSUInteger modifiers);
 extern UInt32 DDCarbonModifierFlagsFromCocoaModifiers(NSUInteger flags);
+extern unsigned int DDKeycodeFromString(NSString* code);

@@ -7,6 +7,7 @@
 //
 
 #import <AppKit/AppKit.h>
+@class DDHotKeyTextField;
 
 @interface StatusBarItem : NSObject
 
@@ -25,5 +26,6 @@
 - (IBAction)removeMenuItem:(NSMenuItem*)sender;
 - (NSImage*)resizeImage:(NSImage*)image width:(CGFloat)width height:(CGFloat)height;
 - (IBAction)handleHotKey:(id)sender object:(NSMenuItem*)menuItem;
-
+- (IBAction)handleHotKeySet:(NSMenuItem*)sender;
+- (IBAction)setNewKeyEquivalent:(DDHotKeyTextField*)sender;
 @end

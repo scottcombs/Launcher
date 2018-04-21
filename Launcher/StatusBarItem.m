@@ -10,6 +10,10 @@
 #import <ServiceManagement/ServiceManagement.h>
 #import "DDHotKeyCenter.h"
 #import <Carbon/Carbon.h>
+#import "DDHotKeyTextField.h"
+#import "SetHotKeyWindowController.h"
+#import "ResponsiveWindow.h"
+#import "DDHotKeyUtilities.h"
 
 @implementation StatusBarItem
 @synthesize statusItem;
@@ -62,56 +66,15 @@
 		item.title = [item.title stringByReplacingOccurrencesOfString:@".app" withString:@""];
 		NSImage* image = [self resizeImage:item.image width:18.0 height:18.0];
 		item.image = image;
-		
-		item.keyEquivalent = [NSString stringWithFormat:@"%ld", count];
-		item.keyEquivalentModifierMask = (NSEventModifierFlagCommand | NSEventModifierFlagOption);
 
-		unsigned short keyCode = 0;
-		switch (count){
-			case 1:{
-				keyCode = kVK_ANSI_1;
-				break;
-			}
-			case 2:{
-				keyCode = kVK_ANSI_2;
-				break;
-			}
-			case 3:{
-				keyCode = kVK_ANSI_3;
-				break;
-			}
-			case 4:{
-				keyCode = kVK_ANSI_4;
-				break;
-			}
-			case 5:{
-				keyCode = kVK_ANSI_5;
-				break;
-			}
-			case 6:{
-				keyCode = kVK_ANSI_6;
-				break;
-			}
-			case 7:{
-				keyCode = kVK_ANSI_7;
-				break;
-			}
-			case 8:{
-				keyCode = kVK_ANSI_8;
-				break;
-			}
-			case 9:{
-				keyCode = kVK_ANSI_9;
-				break;
-			}
-			default:
-				break;
+		if (![item.keyEquivalent isEqualToString:@""]) {
+			// Register hotkey
+			DDHotKeyCenter* hkc = [DDHotKeyCenter sharedHotKeyCenter];
+			unsigned int keyCode = DDKeycodeFromString([item.keyEquivalent uppercaseString]);
+
+			DDHotKey* hk = [hkc registerHotKeyWithKeyCode:keyCode modifierFlags:item.keyEquivalentModifierMask target:self action:@selector(handleHotKey:object:) object:item];
+			[self.hotkeyItems addObject:hk];
 		}
-
-		// Register hotkey
-		DDHotKeyCenter* hkc = [DDHotKeyCenter sharedHotKeyCenter];
-		DDHotKey* hk = [hkc registerHotKeyWithKeyCode:keyCode modifierFlags:(NSEventModifierFlagCommand | NSEventModifierFlagOption) target:self action:@selector(handleHotKey:object:) object:item];
-		[self.hotkeyItems addObject:hk];
 
 		item.allowsKeyEquivalentWhenHidden = YES;
 		NSMenu *submenu = [[NSMenu alloc] init];
@@ -119,8 +82,14 @@
 		subMenuItem.target = self;
 		subMenuItem.representedObject = item;
 		[submenu addItem:subMenuItem];
-		[item setSubmenu:submenu];
+
+		NSMenuItem* subMenuItemHotKey = [[NSMenuItem alloc]initWithTitle:@"Set key equivalent..." action:@selector(handleHotKeySet:) keyEquivalent:@""];
+		[subMenuItemHotKey setTarget:self];
+		subMenuItemHotKey.representedObject = item;
 		
+		[submenu addItem:subMenuItemHotKey];
+
+		[item setSubmenu:submenu];
 		
 		[self.menu addItem:item];
 		count++;
@@ -251,5 +220,25 @@
 - (IBAction)handleHotKey:(id)sender object:(NSMenuItem*)menuItem {
 	//NSLog(@"%@", @"Got Here");
 	[self launch:menuItem];
+}
+
+- (IBAction)handleHotKeySet:(NSMenuItem*)sender {
+	SetHotKeyWindowController* shkwc = [[SetHotKeyWindowController alloc]init];
+	NSMenuItem* menuItem = (NSMenuItem*)sender.representedObject;
+	shkwc.menuItem = menuItem;
+
+	ResponsiveWindow* window = (ResponsiveWindow*)shkwc.window;
+	NSModalResponse returnCode = [NSApp runModalForWindow:window];
+	if (returnCode == NSModalResponseOK) {
+		DDHotKey* hotKey = shkwc.hotKeyTextField.hotKey;
+		NSString* keyCode = DDStringFromKeyCode(hotKey.keyCode, 0);
+		menuItem.keyEquivalent = keyCode;
+		menuItem.keyEquivalentModifierMask = hotKey.modifierFlags;
+		[self buildMenu:self];
+	}
+}
+
+- (IBAction)setNewKeyEquivalent:(DDHotKeyTextField*)sender {
+	NSLog(@"%@", @"Got Here");
 }
 @end

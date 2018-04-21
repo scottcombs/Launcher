@@ -45,6 +45,14 @@ OSStatus dd_hotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, vo
     return newHotKey;
 }
 
++ (instancetype)hotKeyWithKeyCodeNoTask:(unsigned short)keyCode modifierFlags:(NSUInteger)flags {
+	DDHotKey *newHotKey = [[self alloc] init];
+	//[newHotKey _setTask:task];
+	[newHotKey _setKeyCode:keyCode];
+	[newHotKey _setModifierFlags:flags];
+	return newHotKey;
+}
+
 - (void) dealloc {
     [[DDHotKeyCenter sharedHotKeyCenter] unregisterHotKey:self];
 }

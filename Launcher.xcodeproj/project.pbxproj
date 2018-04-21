@@ -13,6 +13,10 @@
 		762B73B520880A4F00A7129F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 762B73B420880A4F00A7129F /* main.m */; };
 		762B73BE20880E2300A7129F /* StatusBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 762B73BD20880E2300A7129F /* StatusBarItem.m */; };
 		762B73C02088147F00A7129F /* Launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 762B73BF2088147F00A7129F /* Launcher.png */; };
+		763648BE208A76E600FD5AC4 /* ClearHotKey.png in Resources */ = {isa = PBXBuildFile; fileRef = 763648BD208A76E600FD5AC4 /* ClearHotKey.png */; };
+		763648C5208A930D00FD5AC4 /* SetHotKeyWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 763648C3208A930D00FD5AC4 /* SetHotKeyWindowController.m */; };
+		763648C6208A930D00FD5AC4 /* SetHotKeyWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 763648C4208A930D00FD5AC4 /* SetHotKeyWindowController.xib */; };
+		763648D4208AA87E00FD5AC4 /* ResponsiveWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 763648D2208AA87E00FD5AC4 /* ResponsiveWindow.m */; };
 		7693E96120895DAC00CB9151 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76AD5894208907410004BDEA /* ServiceManagement.framework */; };
 		769ED17B208A41400088CE65 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769ED17A208A41400088CE65 /* Carbon.framework */; };
 		769ED1D0208A5DB30088CE65 /* DDHotKeyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 769ED1CE208A5D5B0088CE65 /* DDHotKeyTextField.m */; };
@@ -50,6 +54,12 @@
 		762B73BC20880E2300A7129F /* StatusBarItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusBarItem.h; sourceTree = "<group>"; };
 		762B73BD20880E2300A7129F /* StatusBarItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusBarItem.m; sourceTree = "<group>"; };
 		762B73BF2088147F00A7129F /* Launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Launcher.png; sourceTree = "<group>"; };
+		763648BD208A76E600FD5AC4 /* ClearHotKey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ClearHotKey.png; sourceTree = "<group>"; };
+		763648C2208A930D00FD5AC4 /* SetHotKeyWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetHotKeyWindowController.h; sourceTree = "<group>"; };
+		763648C3208A930D00FD5AC4 /* SetHotKeyWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetHotKeyWindowController.m; sourceTree = "<group>"; };
+		763648C4208A930D00FD5AC4 /* SetHotKeyWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetHotKeyWindowController.xib; sourceTree = "<group>"; };
+		763648D2208AA87E00FD5AC4 /* ResponsiveWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponsiveWindow.m; sourceTree = "<group>"; };
+		763648D3208AA87E00FD5AC4 /* ResponsiveWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponsiveWindow.h; sourceTree = "<group>"; };
 		769ED17A208A41400088CE65 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		769ED1CA208A5D5A0088CE65 /* DDHotKeyCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDHotKeyCenter.h; sourceTree = "<group>"; };
 		769ED1CB208A5D5A0088CE65 /* DDHotKeyUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDHotKeyUtilities.h; sourceTree = "<group>"; };
@@ -93,8 +103,8 @@
 			children = (
 				762B73AA20880A4F00A7129F /* Launcher */,
 				76AD58812088E96B0004BDEA /* LauncherStarter */,
-				762B73A920880A4F00A7129F /* Products */,
 				76AD5893208907410004BDEA /* Frameworks */,
+				762B73A920880A4F00A7129F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,20 +122,26 @@
 			children = (
 				762B73AB20880A4F00A7129F /* AppDelegate.h */,
 				762B73AC20880A4F00A7129F /* AppDelegate.m */,
-				762B73BC20880E2300A7129F /* StatusBarItem.h */,
-				762B73BD20880E2300A7129F /* StatusBarItem.m */,
+				762B73AE20880A4F00A7129F /* Assets.xcassets */,
 				769ED1CA208A5D5A0088CE65 /* DDHotKeyCenter.h */,
 				769ED1CC208A5D5B0088CE65 /* DDHotKeyCenter.m */,
 				769ED1CF208A5D5B0088CE65 /* DDHotKeyTextField.h */,
 				769ED1CE208A5D5B0088CE65 /* DDHotKeyTextField.m */,
 				769ED1CB208A5D5A0088CE65 /* DDHotKeyUtilities.h */,
 				769ED1CD208A5D5B0088CE65 /* DDHotKeyUtilities.m */,
-				762B73AE20880A4F00A7129F /* Assets.xcassets */,
-				762B73B020880A4F00A7129F /* MainMenu.xib */,
-				762B73BF2088147F00A7129F /* Launcher.png */,
+				763648D3208AA87E00FD5AC4 /* ResponsiveWindow.h */,
+				763648D2208AA87E00FD5AC4 /* ResponsiveWindow.m */,
 				762B73B320880A4F00A7129F /* Info.plist */,
-				762B73B420880A4F00A7129F /* main.m */,
 				762B73B620880A4F00A7129F /* Launcher.entitlements */,
+				762B73BF2088147F00A7129F /* Launcher.png */,
+				763648BD208A76E600FD5AC4 /* ClearHotKey.png */,
+				762B73B020880A4F00A7129F /* MainMenu.xib */,
+				762B73BC20880E2300A7129F /* StatusBarItem.h */,
+				762B73BD20880E2300A7129F /* StatusBarItem.m */,
+				762B73B420880A4F00A7129F /* main.m */,
+				763648C2208A930D00FD5AC4 /* SetHotKeyWindowController.h */,
+				763648C3208A930D00FD5AC4 /* SetHotKeyWindowController.m */,
+				763648C4208A930D00FD5AC4 /* SetHotKeyWindowController.xib */,
 			);
 			path = Launcher;
 			sourceTree = "<group>";
@@ -136,10 +152,10 @@
 				76AD58822088E96B0004BDEA /* AppDelegate.h */,
 				76AD58832088E96B0004BDEA /* AppDelegate.m */,
 				76AD58852088E96B0004BDEA /* Assets.xcassets */,
-				76AD58872088E96B0004BDEA /* MainMenu.xib */,
 				76AD588A2088E96B0004BDEA /* Info.plist */,
-				76AD588B2088E96B0004BDEA /* main.m */,
 				76AD588D2088E96B0004BDEA /* LauncherStarter.entitlements */,
+				76AD58872088E96B0004BDEA /* MainMenu.xib */,
+				76AD588B2088E96B0004BDEA /* main.m */,
 			);
 			path = LauncherStarter;
 			sourceTree = "<group>";
@@ -164,6 +180,7 @@
 				762B73A520880A4F00A7129F /* Frameworks */,
 				762B73A620880A4F00A7129F /* Resources */,
 				76AD58912088F33B0004BDEA /* CopyFiles */,
+				76AF7194208A7200009EF22D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -245,7 +262,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				763648C6208A930D00FD5AC4 /* SetHotKeyWindowController.xib in Resources */,
 				762B73AF20880A4F00A7129F /* Assets.xcassets in Resources */,
+				763648BE208A76E600FD5AC4 /* ClearHotKey.png in Resources */,
 				762B73B220880A4F00A7129F /* MainMenu.xib in Resources */,
 				762B73C02088147F00A7129F /* Launcher.png in Resources */,
 			);
@@ -262,13 +281,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		76AF7194208A7200009EF22D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "cp -f -R ${BUILT_PRODUCTS_DIR}/Launcher.app /Applications";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		762B73A420880A4F00A7129F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				763648C5208A930D00FD5AC4 /* SetHotKeyWindowController.m in Sources */,
 				762B73BE20880E2300A7129F /* StatusBarItem.m in Sources */,
 				762B73B520880A4F00A7129F /* main.m in Sources */,
+				763648D4208AA87E00FD5AC4 /* ResponsiveWindow.m in Sources */,
 				769ED1D1208A5DB30088CE65 /* DDHotKeyUtilities.m in Sources */,
 				762B73AD20880A4F00A7129F /* AppDelegate.m in Sources */,
 				769ED1D2208A5DB30088CE65 /* DDHotKeyCenter.m in Sources */,
@@ -294,6 +331,7 @@
 				762B73B120880A4F00A7129F /* Base */,
 			);
 			name = MainMenu.xib;
+			path = .;
 			sourceTree = "<group>";
 		};
 		76AD58872088E96B0004BDEA /* MainMenu.xib */ = {
@@ -302,6 +340,7 @@
 				76AD58882088E96B0004BDEA /* Base */,
 			);
 			name = MainMenu.xib;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
