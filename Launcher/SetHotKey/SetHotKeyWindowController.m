@@ -11,10 +11,6 @@
 #import "DDHotKeyCenter.h"
 #import "DDHotKeyUtilities.h"
 
-@interface SetHotKeyWindowController ()
-
-@end
-
 @implementation SetHotKeyWindowController
 @synthesize menuItem;
 @synthesize originalValues;
@@ -24,7 +20,7 @@
 -(id)init {
 	self = [super initWithWindowNibName:@"SetHotKeyWindowController"];
 	if (self) {
-		//self.window.windowController = self;
+		// Should be able to see the NSWindowController
 	}
 	return self;
 }

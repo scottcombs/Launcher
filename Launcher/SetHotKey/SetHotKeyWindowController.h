@@ -9,13 +9,16 @@
 #import <AppKit/AppKit.h>
 @class DDHotKeyTextField;
 
-@interface SetHotKeyWindowController : NSWindowController
+@interface SetHotKeyWindowController : NSWindowController {
+
+}
 
 @property (readwrite, retain)NSMenuItem* menuItem;
 @property (strong) IBOutlet NSTextField *titleTextField;
 @property (strong) IBOutlet DDHotKeyTextField *hotKeyTextField;
 @property (readwrite, retain)NSMenuItem* originalValues;
 
+-(id)init;
 - (IBAction)resetMenuItem:(id)sender;
 
 @end
