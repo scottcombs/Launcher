@@ -28,7 +28,7 @@
 		76AD58862088E96B0004BDEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76AD58852088E96B0004BDEA /* Assets.xcassets */; };
 		76AD58892088E96B0004BDEA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76AD58872088E96B0004BDEA /* MainMenu.xib */; };
 		76AD588C2088E96B0004BDEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AD588B2088E96B0004BDEA /* main.m */; };
-		76AD58922088F3980004BDEA /* LauncherStarter.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 76AD58802088E96B0004BDEA /* LauncherStarter.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		76DEEBC4208BCA68001C891E /* LauncherStarter.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 76AD58802088E96B0004BDEA /* LauncherStarter.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,7 +38,7 @@
 			dstPath = Contents/Library/LoginItems;
 			dstSubfolderSpec = 1;
 			files = (
-				76AD58922088F3980004BDEA /* LauncherStarter.app in CopyFiles */,
+				76DEEBC4208BCA68001C891E /* LauncherStarter.app in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,7 +226,6 @@
 				762B73A520880A4F00A7129F /* Frameworks */,
 				762B73A620880A4F00A7129F /* Resources */,
 				76AD58912088F33B0004BDEA /* CopyFiles */,
-				76AF7194208A7200009EF22D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -328,22 +327,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		76AF7194208A7200009EF22D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "cp -f -R ${BUILT_PRODUCTS_DIR}/Launcher.app /Applications";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		762B73A420880A4F00A7129F /* Sources */ = {

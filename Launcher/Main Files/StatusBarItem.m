@@ -105,7 +105,11 @@
 	self.launchItem.action = @selector(setAutoLaunch:);
 	self.launchItem.target = self;
 	self.launchItem.title = @"Launch At Startup";
-	self.launchItem.state = self.launchAtStartup;
+	if (self.launchAtStartup) {
+		self.launchItem.state = NSControlStateValueOn;
+	}else{
+		self.launchItem.state = NSControlStateValueOff;
+	}
 	[self.menu addItem:self.launchItem];
 
 	// Add A New MenuItem
@@ -228,17 +232,30 @@
 
 - (IBAction) setAutoLaunch:(NSButton*)sender {
 	NSString* appBundleIdentifier = @"com.crankysoft.LauncherStarter";
+
 	self.launchAtStartup = !self.launchItem.state;
+
 	if (SMLoginItemSetEnabled(CFBridgingRetain(appBundleIdentifier), self.launchAtStartup)) {
 		if (self.launchAtStartup) {
 			NSLog(@"%@", @"Successfully add login item.");
 		} else {
 			NSLog(@"%@", @"Successfully remove login item.");
 		}
-		self.launchItem.state = self.launchAtStartup;
+		if (self.launchAtStartup) {
+			self.launchItem.state = NSControlStateValueOn;
+		}else{
+			self.launchItem.state = NSControlStateValueOff;
+		}
 	} else {
 		NSLog(@"%@", @"Failed to add login item.");
 	}
+
+	[NSTimer scheduledTimerWithTimeInterval:1.0 repeats:NO block:^(NSTimer * _Nonnull timer) {
+		NSArray* array = [NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.crankysoft.LauncherStarter"];
+		for (NSRunningApplication* ra in array) {
+			[ra terminate];
+		}
+	}];
 }
 
 - (IBAction)handleHotKey:(id)sender object:(NSMenuItem*)menuItem {

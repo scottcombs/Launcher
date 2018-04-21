@@ -7,12 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
-
-@interface AppDelegate ()
-
-@property (weak) IBOutlet NSWindow *window;
-@end
+#import <AppKit/AppKit.h>
 
 @implementation AppDelegate
 
