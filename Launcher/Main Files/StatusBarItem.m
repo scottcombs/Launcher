@@ -175,8 +175,8 @@
 
 - (IBAction)addItem:(id)sender {
 	NSOpenPanel* panel = [NSOpenPanel openPanel];
-	panel.canChooseDirectories = NO;
-	panel.canCreateDirectories = NO;
+	panel.canChooseDirectories = YES;
+	panel.canCreateDirectories = YES;
 	panel.allowsMultipleSelection = NO;
 	panel.message = @"Add an item to Launcher.";
 	

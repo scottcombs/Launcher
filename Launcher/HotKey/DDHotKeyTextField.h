@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) DDHotKey *hotKey;
 
+- (IBAction)goToNextKeyView:(id)sender;
+
 @end
 
 @interface DDHotKeyTextFieldCell : NSTextFieldCell @end

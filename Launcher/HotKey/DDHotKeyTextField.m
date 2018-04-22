@@ -71,6 +71,12 @@ static DDHotKeyTextFieldEditor *DDFieldEditor(void) {
     return [super stringValue];
 }
 
+- (IBAction)goToNextKeyView:(id)sender {
+	// This fixes tabbing through items if the next key view is set
+	// inside Interface Builder or manually set
+	[self.window makeFirstResponder:self.nextKeyView];
+}
+
 @end
 
 @implementation DDHotKeyTextFieldEditor {
@@ -91,17 +97,18 @@ static DDHotKeyTextFieldEditor *DDFieldEditor(void) {
 	if (event.type == NSEventTypeKeyDown) {
         _hasSeenKeyDown = YES;
         unichar character = [event.charactersIgnoringModifiers characterAtIndex:0];
-        
 
-        if (hasModifier == NO && ([[NSCharacterSet newlineCharacterSet] characterIsMember:character] || event.keyCode == kVK_Escape)) {
-            if (event.keyCode == kVK_Escape) {
+        if (hasModifier == NO && ([[NSCharacterSet newlineCharacterSet] characterIsMember:character] || event.keyCode == kVK_Escape || event.keyCode == kVK_Tab)) {
+
+            if (event.keyCode == kVK_Escape || event.keyCode == kVK_Tab) {
                 self.hotKeyField.hotKey = _originalHotKey;
-                
+
                 NSString *str = DDStringFromKeyCode(_originalHotKey.keyCode, _originalHotKey.modifierFlags);
                 self.textStorage.mutableString.string = [str uppercaseString];
             }
             [self.hotKeyField sendAction:self.hotKeyField.action to:self.hotKeyField.target];
-            [self.window makeFirstResponder:nil];
+			// Call method to go to next responder
+			[NSApp sendAction:@selector(goToNextKeyView:) to:nil from:self];
             return;
         }
     }
@@ -135,7 +142,7 @@ static DDHotKeyTextFieldEditor *DDFieldEditor(void) {
             _globalMonitor = nil;
         }
     }
-    
+
     return ok;
 }
 
