@@ -283,7 +283,9 @@ OSStatus dd_hotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, vo
         NSSet *matchingHotKeys = [[DDHotKeyCenter sharedHotKeyCenter] hotKeysMatching:^BOOL(DDHotKey *hotkey) {
             return hotkey.hotKeyID == keyID;
         }];
-        if ([matchingHotKeys count] > 1) { NSLog(@"ERROR!"); }
+        if ([matchingHotKeys count] > 1) {
+			//NSLog(@"ERROR!");
+		}
         DDHotKey *matchingHotKey = [matchingHotKeys anyObject];
         
         NSEvent *event = [NSEvent eventWithEventRef:theEvent];

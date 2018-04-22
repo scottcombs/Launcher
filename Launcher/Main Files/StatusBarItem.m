@@ -237,9 +237,9 @@
 
 	if (SMLoginItemSetEnabled(CFBridgingRetain(appBundleIdentifier), self.launchAtStartup)) {
 		if (self.launchAtStartup) {
-			NSLog(@"%@", @"Successfully add login item.");
+			//NSLog(@"%@", @"Successfully add login item.");
 		} else {
-			NSLog(@"%@", @"Successfully remove login item.");
+			//NSLog(@"%@", @"Successfully remove login item.");
 		}
 		if (self.launchAtStartup) {
 			self.launchItem.state = NSControlStateValueOn;
@@ -247,9 +247,10 @@
 			self.launchItem.state = NSControlStateValueOff;
 		}
 	} else {
-		NSLog(@"%@", @"Failed to add login item.");
+		//NSLog(@"%@", @"Failed to add login item.");
 	}
 
+	// Just in case LauncherStarter doesn't quit automatically
 	[NSTimer scheduledTimerWithTimeInterval:1.0 repeats:NO block:^(NSTimer * _Nonnull timer) {
 		NSArray* array = [NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.crankysoft.LauncherStarter"];
 		for (NSRunningApplication* ra in array) {
@@ -288,7 +289,7 @@
 }
 
 - (IBAction)setNewKeyEquivalent:(DDHotKeyTextField*)sender {
-	NSLog(@"%@", @"Got Here");
+	//NSLog(@"%@", @"Got Here");
 }
 
 - (IBAction)helpTriggered:(id)sender {

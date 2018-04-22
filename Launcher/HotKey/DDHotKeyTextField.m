@@ -62,12 +62,12 @@ static DDHotKeyTextFieldEditor *DDFieldEditor(void) {
 }
 
 - (void)setStringValue:(NSString *)aString {
-    NSLog(@"-[DDHotKeyTextField setStringValue:] is not what you want. Use -[DDHotKeyTextField setHotKey:] instead.");
+    //NSLog(@"-[DDHotKeyTextField setStringValue:] is not what you want. Use -[DDHotKeyTextField setHotKey:] instead.");
     [super setStringValue:aString];
 }
 
 - (NSString *)stringValue {
-    NSLog(@"-[DDHotKeyTextField stringValue] is not what you want. Use -[DDHotKeyTextField hotKey] instead.");
+    //NSLog(@"-[DDHotKeyTextField stringValue] is not what you want. Use -[DDHotKeyTextField hotKey] instead.");
     return [super stringValue];
 }
 
