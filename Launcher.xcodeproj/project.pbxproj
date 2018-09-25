@@ -341,7 +341,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "rm -R -v ${BUILT_PRODUCTS_DIR}/LauncherStarter.app";
+			shellScript = "rm -R -v ${BUILT_PRODUCTS_DIR}/LauncherStarter.app\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

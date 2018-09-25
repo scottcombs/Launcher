@@ -32,7 +32,7 @@
 	self.statusItem.title = @"";
 	self.statusItem.enabled = YES;
 	self.statusItem.toolTip = @"Launcher App";
-	statusItem.image = [NSImage imageNamed:@"Launcher.png"];
+	statusItem.image = [NSImage imageNamed:@"customIcon"];
 	
 	[self buildMenu:self];
 	
